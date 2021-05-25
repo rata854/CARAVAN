@@ -1,9 +1,7 @@
 class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
-    p "標準出力にのみ反映"
-    logger.debug("標準出力とログファイルに記録させる")
-  end
+end
 
   def show
     @blog = Blog.find(params[:id])
@@ -16,7 +14,6 @@ class BlogsController < ApplicationController
   def create
     blog = Blog.new(blog_path)
     blog.save
-    binding.pry
     redirect_to blogs_path(blog.id)
   end
 
